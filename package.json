@@ -1,0 +1,21 @@
+{
+  "name": "fivem_js",
+  "type": "module",
+  "scripts": {
+    "dev": "bunx rolldown -c",
+    "prod": "tsc --isolatedModules -p tsconfig.json --skipLibCheck && bunx rolldown -c"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "rolldown": "^1.0.0-beta.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@citizenfx/client": "^2.0.12949-1",
+    "@citizenfx/server": "^2.0.12949-1",
+    "@nativewrappers/fivem": "^0.0.56",
+    "esx.js": "^1.1.8"
+  }
+}
