@@ -16,6 +16,7 @@
     "@citizenfx/client": "^2.0.12949-1",
     "@citizenfx/server": "^2.0.12949-1",
     "@nativewrappers/fivem": "^0.0.56",
+    "@overextended/ox_lib": "^3.29.0",
     "esx.js": "^1.1.8"
   }
 }
