@@ -6,6 +6,8 @@ export default defineConfig([
         output: {
             file: "dist/client.js",
             target: "esnext", // FiveM should use es2017
+            format: "cjs",
+            minify: true
         }
     },
     {
@@ -15,6 +17,7 @@ export default defineConfig([
             file: "dist/server.js",
             target: "esnext",
             format: "cjs",
+            minify: true
         }
     }
 ])

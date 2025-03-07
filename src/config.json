@@ -1,4 +1,8 @@
 {
-    "debugMode": true,
-    "locale": "en"
+    "locale": "en",
+    "ranges": [ 3, 10, 15, 30 ],
+    "permission": {
+        "type": "ace",
+        "value": "admin"
+    }
 }

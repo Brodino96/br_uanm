@@ -1,31 +1,40 @@
-import { Config } from "../shared/config"
-import Ui from "./ui"
+import UI from "./ui"
+
+const ui = new UI()
 
 class Main {
     private mutedList: Array<number> = []
-    private ui = new Ui()
 
     constructor() {
-        onNet("br_uanm:muteMaster", (id: number) => { this.muteMaster(id) })
-        onNet("br_uanm:unmuteMaster", (id: number) => { this.unmuteMaster(id) })
-        onNet("br_uanm:openUi", () => { this.ui.open() })
+        onNet("br_uanm:openMenu", () => { ui.openMenu() })
+        onNet("br_uanm:updateMuteStatus", (adminId: number, playerList: Array<number>) => { this.updateMuteStatus(adminId, playerList) })
+        onNet("br_uanm:unmuteMaster", (adminId: number) => { this.unmuteMaster(adminId) })
+    }
+
+    private updateMuteStatus(adminId: number, playerList: Array<number>) {
+        const myId = GetPlayerServerId(NetworkGetPlayerIndexFromPed(PlayerPedId()))
+        if (playerList.includes(myId)) {
+            this.unmuteMaster(adminId)
+        } else {
+            this.muteMaster(adminId)
+        }
     }
 
     private muteMaster(id: number) {
-        if (this.mutedList.includes(id)) {
-            return
-        }
+        if (this.mutedList.includes(id)) { return }
+
         this.mutedList.push(id)
         exports["pma-voice"].toggleMutePlayer(id)
+        console.log("mute")
     }
 
     private unmuteMaster(id: number) {
-        if (!this.mutedList.includes(id)) {
-            return
-        }
+        if (!this.mutedList.includes(id)) { return }
+
         const index = this.mutedList.indexOf(id)
         this.mutedList.splice(index, 1)
         exports["pma-voice"].toggleMutePlayer(id)
+        console.log("unmute")
     }
 }
 

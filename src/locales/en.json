@@ -1,3 +1,7 @@
 {
-    "init": "Hello"
+    "select_range_title": "Select range",
+    "range": "Range",
+    "confirm": "Confirm",
+    "select_players": "Select players",
+    "reset": "Reset"
 }

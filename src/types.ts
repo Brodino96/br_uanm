@@ -1,6 +1,8 @@
 export type ConfigType = {
-    debugMode: boolean,
-    locale: string
+    locale: string,
+    permission: {
+        type: string,
+        value: string
+    }
+    ranges: Array<number>
 }
-
-export type PlayerList = Array<number> | null
